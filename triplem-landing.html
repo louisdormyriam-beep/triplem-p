@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRIPLEM+P | Real Estate Excellence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-blue: #0047AB;
+            --royal-blue-dark: #003380;
+            --royal-blue-light: #1a5dc4;
+            --gold: #D4AF37;
+            --gold-bright: #FFD700;
+            --silver: #C0C0C0;
+            --silver-light: #E8E8E8;
+            --navy: #0a1628;
+            --cream: #FAF9F6;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 249, 246, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--royal-blue);
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--royal-blue);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background-image: 
+                linear-gradient(135deg, 
+                    rgba(250, 249, 246, 0.95) 0%, 
+                    rgba(250, 249, 246, 0.85) 50%,
+                    rgba(0, 71, 171, 0.1) 100%),
+                url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.7s both;
+        }
+
+        .hero h1 strong {
+            font-weight: 700;
+            color: var(--royal-blue);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.9s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 1.1s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--royal-blue) 0%, var(--royal-blue-dark) 100%);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(0, 71, 171, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 71, 171, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--royal-blue);
+            border: 2px solid var(--royal-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--royal-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 0;
+            background: var(--white);
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--gold) 50%, 
+                transparent 100%);
+            z-index: 2;
+        }
+
+        .services::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, 
+                    rgba(255, 255, 255, 1) 0%, 
+                    rgba(255, 255, 255, 0.95) 20%,
+                    rgba(255, 255, 255, 0.7) 60%,
+                    rgba(0, 71, 171, 0.05) 100%),
+                url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .services .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Buyer-in-Training Section */
+        .buyer-training {
+            padding: 8rem 0;
+            background: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .buyer-training-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.08;
+            background-image: 
+                linear-gradient(135deg, rgba(0, 71, 171, 0.9) 0%, rgba(10, 22, 40, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: blur(1px);
+        }
+
+        .buyer-training-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-grid {
+            margin-top: 4rem;
+        }
+
+        .program-hero {
+            background: linear-gradient(135deg, var(--royal-blue) 0%, var(--royal-blue-dark) 100%);
+            color: var(--white);
+            padding: 4rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .program-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .program-hero h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .program-hero p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .program-highlight {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-left: 4px solid var(--gold);
+        }
+
+        .highlight-icon {
+            font-size: 3rem;
+            line-height: 1;
+        }
+
+        .program-highlight h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .program-highlight p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .program-steps {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .program-step {
+            background: var(--white);
+            padding: 3rem;
+            display: flex;
+            gap: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .program-step::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, var(--gold), var(--gold-bright));
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.4s ease;
+        }
+
+        .program-step:hover::before {
+            transform: scaleY(1);
+        }
+
+        .program-step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .step-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--royal-blue);
+            opacity: 0.2;
+            line-height: 1;
+            min-width: 100px;
+        }
+
+        .step-content h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .step-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-benefits {
+            list-style: none;
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .step-benefits li {
+            color: #555;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .step-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .program-success {
+            background: linear-gradient(135deg, 
+                rgba(0, 71, 171, 0.05) 0%, 
+                rgba(212, 175, 55, 0.05) 100%);
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .success-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .success-content p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .success-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--royal-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 0;
+            background: var(--white);
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--gold) 50%, 
+                transparent 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-label {
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: var(--cream);
+            padding: 3rem 2rem;
+            border-radius: 0;
+            position: relative;
+            transition: all 0.4s ease;
+            border-top: 3px solid transparent;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--royal-blue), var(--royal-blue-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .service-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card li {
+            color: #666;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 8rem 0;
+            background: var(--white);
+            position: relative;
+        }
+
+        .about-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-intro {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .about-lead {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: #555;
+            max-width: 900px;
+            margin: 2rem auto 0;
+        }
+
+        .about-story {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .story-image {
+            position: relative;
+            height: 400px;
+            background-image: 
+                linear-gradient(135deg,
+                    rgba(0, 71, 171, 0.1) 0%,
+                    rgba(212, 175, 55, 0.1) 100%),
+                url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .experience-badge {
+            background: rgba(0, 71, 171, 0.95);
+            color: var(--white);
+            padding: 2.5rem 3rem;
+            text-align: center;
+            border: 4px solid var(--gold);
+            backdrop-filter: blur(10px);
+        }
+
+        .badge-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.4;
+        }
+
+        .story-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .story-text p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-mission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 6rem;
+        }
+
+        .mission-card {
+            background: var(--cream);
+            padding: 3rem 2.5rem;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--royal-blue), var(--gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .mission-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .mission-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+        }
+
+        .mission-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-detail {
+            padding: 1.5rem;
+            background: rgba(0, 71, 171, 0.05);
+            border-left: 3px solid var(--gold);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #555;
+            font-style: italic;
+        }
+
+        .about-philosophy {
+            background: linear-gradient(135deg,
+                rgba(0, 71, 171, 0.03) 0%,
+                rgba(212, 175, 55, 0.03) 100%);
+            padding: 5rem 4rem;
+            margin-bottom: 6rem;
+            position: relative;
+        }
+
+        .about-philosophy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, var(--royal-blue), var(--gold));
+        }
+
+        .philosophy-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .philosophy-lead {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #555;
+            margin-bottom: 3rem;
+        }
+
+        .philosophy-points {
+            display: grid;
+            gap: 2.5rem;
+        }
+
+        .philosophy-point {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .point-marker {
+            min-width: 16px;
+            width: 16px;
+            height: 16px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin-top: 8px;
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+        }
+
+        .point-content h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--royal-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .point-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .about-commitment {
+            margin-bottom: 5rem;
+        }
+
+        .commitment-box {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .commitment-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .commitment-box h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .commitment-box p {
+            font-size: 1.15rem;
+            line-height: 2;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .commitment-promise {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--white);
+            opacity: 1 !important;
+        }
+
+        .commitment-signature {
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .signature-line {
+            width: 200px;
+            height: 2px;
+            background: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .commitment-signature p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--gold);
+            margin: 0;
+        }
+
+        .about-cta {
+            text-align: center;
+            background: linear-gradient(135deg,
+                rgba(0, 71, 171, 0.05) 0%,
+                rgba(212, 175, 55, 0.05) 100%);
+            padding: 4rem;
+        }
+
+        .about-cta h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-cta p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 0;
+            background-image: 
+                linear-gradient(135deg, 
+                    rgba(0, 71, 171, 0.92) 0%, 
+                    rgba(0, 51, 128, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 8rem 0;
+            background-image:
+                linear-gradient(135deg,
+                    rgba(250, 249, 246, 0.97) 0%,
+                    rgba(250, 249, 246, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 4rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--royal-blue), var(--gold));
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--silver-light);
+            background: var(--cream);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--royal-blue);
+            background: var(--white);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            accent-color: var(--royal-blue);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, var(--royal-blue) 0%, var(--royal-blue-dark) 100%);
+            color: var(--white);
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 71, 171, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-image:
+                linear-gradient(135deg,
+                    rgba(10, 22, 40, 0.95) 0%,
+                    rgba(10, 22, 40, 0.97) 100%),
+                url('https://images.unsplash.com/photo-1600607687644-c7171b42498b?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: var(--silver-light);
+            padding: 3rem 0 1.5rem;
+            position: relative;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .footer-text {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(192, 192, 192, 0.2);
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .success-stats {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .program-step {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .step-number {
+                font-size: 3rem;
+                min-width: auto;
+            }
+
+            .about-story {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .story-image {
+                height: 300px;
+            }
+
+            .about-mission-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .cta-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .form-container {
+                padding: 2rem;
+            }
+
+            .program-hero {
+                padding: 2.5rem;
+            }
+
+            .program-hero h3 {
+                font-size: 2rem;
+            }
+
+            .program-highlight {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .program-step {
+                padding: 2rem;
+            }
+
+            .program-success {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .success-content h3 {
+                font-size: 2rem;
+            }
+
+            .about-intro {
+                margin-bottom: 4rem;
+            }
+
+            .about-lead {
+                font-size: 1.1rem;
+            }
+
+            .story-image {
+                height: 250px;
+            }
+
+            .experience-badge {
+                padding: 2rem;
+            }
+
+            .badge-number {
+                font-size: 3rem;
+            }
+
+            .story-text h3 {
+                font-size: 2rem;
+            }
+
+            .story-text p {
+                font-size: 1rem;
+            }
+
+            .about-philosophy {
+                padding: 3rem 2rem;
+            }
+
+            .philosophy-content h3 {
+                font-size: 2rem;
+            }
+
+            .philosophy-lead {
+                font-size: 1.05rem;
+            }
+
+            .philosophy-point {
+                gap: 1.5rem;
+            }
+
+            .point-content h5 {
+                font-size: 1.3rem;
+            }
+
+            .commitment-box {
+                padding: 2.5rem 2rem;
+            }
+
+            .commitment-box h3 {
+                font-size: 2rem;
+            }
+
+            .about-cta {
+                padding: 3rem 2rem;
+            }
+
+            .about-cta h3 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll Animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">TRIPLEM+P</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#buyer-training">Buyer-in-Training</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-subtitle">Realtor • Educator • Investor</div>
+                <h1>
+                    Your Journey to
+                    <strong>Real Estate Success</strong>
+                </h1>
+                <p>
+                    Whether you're buying your first home or building a real estate portfolio, 
+                    TRIPLEM+P provides the expertise, education, and guidance to help you achieve 
+                    your property goals with confidence.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Start Your Journey</a>
+                    <a href="#services" class="btn btn-secondary">Explore Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">What We Offer</div>
+                <h2 class="section-title">Comprehensive Real Estate Solutions</h2>
+                <p class="section-description">
+                    From first-time homebuyers to seasoned investors, we provide tailored 
+                    services to meet your unique real estate needs.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">1</div>
+                    <h3>First-Time Home Buyers</h3>
+                    <p>Navigate the home buying process with confidence through personalized guidance and education.</p>
+                    <ul>
+                        <li>Pre-approval assistance</li>
+                        <li>Property search & selection</li>
+                        <li>Negotiation & closing support</li>
+                        <li>First-time buyer programs</li>
+                    </ul>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">2</div>
+                    <h3>Real Estate Investment</h3>
+                    <p>Build wealth through strategic property investments with expert analysis and market insights.</p>
+                    <ul>
+                        <li>Investment property analysis</li>
+                        <li>Market research & trends</li>
+                        <li>Portfolio diversification</li>
+                        <li>ROI optimization strategies</li>
+                    </ul>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">3</div>
+                    <h3>Education & Consulting</h3>
+                    <p>Empower yourself with knowledge through comprehensive real estate education and consulting.</p>
+                    <ul>
+                        <li>One-on-one consultations</li>
+                        <li>Market education sessions</li>
+                        <li>Investment strategy planning</li>
+                        <li>Ongoing support & guidance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buyer-in-Training Program Section -->
+    <section class="buyer-training" id="buyer-training">
+        <div class="buyer-training-bg"></div>
+        <div class="container">
+            <div class="buyer-training-content">
+                <div class="section-header">
+                    <div class="section-label">Breaking Down Barriers</div>
+                    <h2 class="section-title">Buyer-in-Training Program</h2>
+                    <p class="section-description">
+                        Don't let financial barriers stop you from homeownership. Our Buyer-in-Training 
+                        program is designed to help you become mortgage-ready, one step at a time.
+                    </p>
+                </div>
+
+                <div class="program-grid">
+                    <div class="program-hero animate-on-scroll">
+                        <div class="program-hero-content">
+                            <h3>Your Path to Homeownership Starts Here</h3>
+                            <p>
+                                If a lack of funds for a down payment or closing costs is holding you back, 
+                                our comprehensive program provides the structure, education, and support you 
+                                need to achieve your dream of homeownership.
+                            </p>
+                            <div class="program-highlight">
+                                <div class="highlight-icon">🏠</div>
+                                <div>
+                                    <h4>Start Where You Are</h4>
+                                    <p>Begin with rental or lease-to-own options while building toward ownership</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-steps">
+                        <div class="program-step animate-on-scroll">
+                            <div class="step-number">01</div>
+                            <div class="step-content">
+                                <h4>Flexible Starting Options</h4>
+                                <p>
+                                    Begin your journey through rental or lease-to-own arrangements that work 
+                                    with your current financial situation. This gives you time to prepare while 
+                                    potentially building equity toward your future home.
+                                </p>
+                                <ul class="step-benefits">
+                                    <li>Traditional rental options</li>
+                                    <li>Lease-to-own opportunities</li>
+                                    <li>Flexible terms to match your timeline</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="program-step animate-on-scroll">
+                            <div class="step-number">02</div>
+                            <div class="step-content">
+                                <h4>Comprehensive Financial Education</h4>
+                                <p>
+                                    We provide personalized financial education to help you understand credit, 
+                                    budgeting, and the home buying process. Knowledge is power, and we'll ensure 
+                                    you're fully prepared for homeownership.
+                                </p>
+                                <ul class="step-benefits">
+                                    <li>Credit building strategies</li>
+                                    <li>Budgeting and savings planning</li>
+                                    <li>Understanding mortgage options</li>
+                                    <li>Home buying process education</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="program-step animate-on-scroll">
+                            <div class="step-number">03</div>
+                            <div class="step-content">
+                                <h4>Credit Building Support</h4>
+                                <p>
+                                    We work with you to improve your credit score through proven strategies and 
+                                    ongoing monitoring. A better credit score means better mortgage terms and 
+                                    lower interest rates.
+                                </p>
+                                <ul class="step-benefits">
+                                    <li>Credit report review and analysis</li>
+                                    <li>Personalized improvement strategies</li>
+                                    <li>Ongoing progress tracking</li>
+                                    <li>Credit repair guidance</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="program-step animate-on-scroll">
+                            <div class="step-number">04</div>
+                            <div class="step-content">
+                                <h4>Down Payment Assistance Resources</h4>
+                                <p>
+                                    We help you discover and access various down payment assistance programs, 
+                                    grants, and resources available in your area. Many first-time buyers qualify 
+                                    for programs they don't even know exist.
+                                </p>
+                                <ul class="step-benefits">
+                                    <li>First-time buyer programs</li>
+                                    <li>Government assistance programs</li>
+                                    <li>Local and state grants</li>
+                                    <li>Down payment loan options</li>
+                                    <li>Application assistance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="program-success animate-on-scroll">
+                        <div class="success-content">
+                            <h3>Success Starts with a Plan</h3>
+                            <p>
+                                Our Buyer-in-Training program isn't just about waiting—it's about actively 
+                                preparing. We create a customized roadmap based on your specific situation, 
+                                with clear milestones and achievable goals.
+                            </p>
+                            <div class="success-stats">
+                                <div class="stat">
+                                    <div class="stat-number">100%</div>
+                                    <div class="stat-label">Personalized Plans</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number">12-24</div>
+                                    <div class="stat-label">Months Average Timeline</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number">Ongoing</div>
+                                    <div class="stat-label">Support & Guidance</div>
+                                </div>
+                            </div>
+                            <a href="#contact" class="btn btn-primary">Start Your Journey Today</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-intro animate-on-scroll">
+                    <div class="section-label">Our Mission</div>
+                    <h2 class="section-title">Breaking Barriers, Building Dreams</h2>
+                    <p class="about-lead">
+                        With over 23 years navigating the ever-changing real estate landscape, we've witnessed 
+                        every market cycle—the highs, the lows, and everything in between. Through it all, 
+                        one truth has remained constant: homeownership shouldn't be a mystery reserved for the few.
+                    </p>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-story animate-on-scroll">
+                        <div class="story-image">
+                            <div class="experience-badge">
+                                <div class="badge-number">23+</div>
+                                <div class="badge-text">Years of<br>Experience</div>
+                            </div>
+                        </div>
+                        <div class="story-text">
+                            <h3>Experience That Matters</h3>
+                            <p>
+                                Twenty-three years in real estate means we've seen it all. We've guided families 
+                                through booming markets and economic downturns. We've celebrated with first-time 
+                                buyers opening their front doors for the first time, and we've helped investors 
+                                build wealth through strategic property acquisitions.
+                            </p>
+                            <p>
+                                This depth of experience isn't just about numbers—it's about understanding the 
+                                human side of real estate. We know the anxiety of navigating mortgage applications, 
+                                the confusion of competing offers, and the overwhelming feeling of not knowing 
+                                where to start.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="about-mission-grid">
+                        <div class="mission-card animate-on-scroll">
+                            <div class="mission-icon">🔍</div>
+                            <h4>Demystifying Home Buying</h4>
+                            <p>
+                                The real estate industry is filled with jargon, complex processes, and unwritten 
+                                rules that can make homeownership feel inaccessible. We exist to change that. 
+                                We break down every step of the journey into clear, understandable terms. From 
+                                pre-approval to closing day, you'll know exactly what's happening and why.
+                            </p>
+                            <div class="mission-detail">
+                                We believe that when you understand the process, you make better decisions. 
+                                When you make better decisions, you build lasting wealth and security for 
+                                your family.
+                            </div>
+                        </div>
+
+                        <div class="mission-card animate-on-scroll">
+                            <div class="mission-icon">🚪</div>
+                            <h4>Dismantling Barriers</h4>
+                            <p>
+                                Too many people believe homeownership is out of reach because of barriers they 
+                                perceive as insurmountable: credit challenges, limited savings, lack of knowledge, 
+                                or simply not knowing where to begin. We've built our business around proving 
+                                that these barriers can be overcome.
+                            </p>
+                            <div class="mission-detail">
+                                Whether it's connecting you with down payment assistance programs you never 
+                                knew existed, helping you rebuild credit, or starting you on a rent-to-own 
+                                path, we find the solution that works for your unique situation.
+                            </div>
+                        </div>
+
+                        <div class="mission-card animate-on-scroll">
+                            <div class="mission-icon">📚</div>
+                            <h4>Education First</h4>
+                            <p>
+                                We're not just realtors—we're educators. Every client interaction is an 
+                                opportunity to share knowledge, build confidence, and empower you to make 
+                                informed decisions. We teach you about market trends, negotiation strategies, 
+                                investment potential, and the long-term wealth-building power of real estate.
+                            </p>
+                            <div class="mission-detail">
+                                Our goal isn't just to help you buy one home—it's to equip you with the 
+                                knowledge to build generational wealth through real estate, whether that 
+                                means owning one home or building a portfolio of investment properties.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-philosophy animate-on-scroll">
+                        <div class="philosophy-content">
+                            <h3>Making Homeownership Accessible to All</h3>
+                            <p class="philosophy-lead">
+                                We believe that everyone who desires to own a home—or two, or more—deserves 
+                                the opportunity to turn that dream into reality. Not "everyone except those 
+                                with credit issues," not "everyone except first-generation buyers," not 
+                                "everyone except those without a large down payment." Everyone.
+                            </p>
+                            
+                            <div class="philosophy-points">
+                                <div class="philosophy-point">
+                                    <div class="point-marker"></div>
+                                    <div class="point-content">
+                                        <h5>If you've been told you can't qualify</h5>
+                                        <p>We'll show you the path forward, even if it takes time. Our Buyer-in-Training 
+                                        program is designed specifically for those who need structured support to become 
+                                        mortgage-ready.</p>
+                                    </div>
+                                </div>
+
+                                <div class="philosophy-point">
+                                    <div class="point-marker"></div>
+                                    <div class="point-content">
+                                        <h5>If you're intimidated by the process</h5>
+                                        <p>We'll walk beside you every step of the way, explaining everything in plain 
+                                        language and ensuring you never feel lost or overwhelmed.</p>
+                                    </div>
+                                </div>
+
+                                <div class="philosophy-point">
+                                    <div class="point-marker"></div>
+                                    <div class="point-content">
+                                        <h5>If you're ready to build wealth</h5>
+                                        <p>We'll help you develop an investment strategy that aligns with your goals, 
+                                        timeline, and risk tolerance—whether you're buying your first rental property 
+                                        or expanding an existing portfolio.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-commitment animate-on-scroll">
+                        <div class="commitment-box">
+                            <h3>Our Commitment to You</h3>
+                            <p>
+                                After 23 years in this business, we've learned that real estate success isn't 
+                                about closing the most deals—it's about changing lives. It's about the single 
+                                mother who thought homeownership was impossible until we showed her a path forward. 
+                                It's about the young couple building equity instead of paying rent. It's about 
+                                the investor who created financial freedom through strategic property acquisitions.
+                            </p>
+                            <p class="commitment-promise">
+                                We're here to be your partner, your educator, and your advocate. We're here to 
+                                answer every question, address every concern, and celebrate every milestone. 
+                                Whether you're buying your first home or your fifth investment property, you 
+                                deserve someone who's been through every market condition and knows how to 
+                                navigate them all.
+                            </p>
+                            <div class="commitment-signature">
+                                <div class="signature-line"></div>
+                                <p>That's the TRIPLEM+P difference.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-cta animate-on-scroll">
+                    <h3>Ready to Start Your Journey?</h3>
+                    <p>
+                        Let's discuss your real estate goals and create a customized plan that works for you. 
+                        No pressure, no judgment—just honest conversation about your dreams and how we can 
+                        help you achieve them.
+                    </p>
+                    <a href="#contact" class="btn btn-primary">Schedule a Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Your Dream Home Awaits</h2>
+                <p>
+                    Don't let barriers hold you back. Whether you're ready to buy today or need time 
+                    to prepare, we have a solution tailored to your unique situation.
+                </p>
+                <a href="#contact" class="btn btn-primary">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Get Started</div>
+                <h2 class="section-title">Tell Us About Your Needs</h2>
+                <p class="section-description">
+                    Complete the form below and we'll reach out to discuss how we can help you 
+                    achieve your real estate goals.
+                </p>
+            </div>
+
+            <div class="form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>I'm interested in: *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="firstTime" name="interests" value="first-time-buyer">
+                                <label for="firstTime">Buying my first home</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="investing" name="interests" value="investing">
+                                <label for="investing">Real estate investing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="selling" name="interests" value="selling">
+                                <label for="selling">Selling a property</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consultation" name="interests" value="consultation">
+                                <label for="consultation">Education & consulting</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeline">Timeline *</label>
+                        <select id="timeline" name="timeline" required>
+                            <option value="">Select your timeline</option>
+                            <option value="immediate">Immediately (0-3 months)</option>
+                            <option value="short">Short-term (3-6 months)</option>
+                            <option value="medium">Medium-term (6-12 months)</option>
+                            <option value="long">Long-term (12+ months)</option>
+                            <option value="exploring">Just exploring options</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Tell us more about your goals</label>
+                        <textarea id="message" name="message" placeholder="Share any specific questions or details about what you're looking for..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">TRIPLEM+P</div>
+                <p class="footer-text">Your trusted partner in real estate excellence</p>
+                <div class="footer-bottom">
+                    &copy; 2026 TRIPLEM+P. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const interests = [];
+            formData.getAll('interests').forEach(interest => {
+                interests.push(interest);
+            });
+            
+            // Here you would typically send the data to your backend
+            // For now, we'll just log it and show a success message
+            console.log('Form submitted:', {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                interests: interests,
+                timeline: formData.get('timeline'),
+                message: formData.get('message')
+            });
+            
+            alert('Thank you for your interest! We will contact you shortly.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
