@@ -1,0 +1,47 @@
+name: Deploy to Droplet (no Docker)
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      HOST: 159.89.46.51
+      USER: root
+      TARGET_DIR: /var/www/html
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Start SSH agent and add key
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+
+      - name: Add droplet to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+
+      - name: Optional build step
+        run: |
+          echo "No build step configured. Add build commands if needed."
+
+      - name: Rsync project to server
+        run: |
+          rsync -az --delete --exclude='.git' --exclude='.github' ./ $USER@$HOST:$TARGET_DIR
+
+      - name: Run server-side post-deploy (if present)
+        run: |
+          ssh $USER@$HOST "mkdir -p $TARGET_DIR && if [ -x $TARGET_DIR/deploy-post.sh ]; then $TARGET_DIR/deploy-post.sh; fi"
+
+      - name: Verify deploy marker
+        run: |
+          ssh $USER@$HOST "echo deployed_at:$(date -u +'%Y-%m-%dT%H:%M:%SZ') > $TARGET_DIR/.deploy_time && cat $TARGET_DIR/.deploy_time"
+
+      - name: Done
+        run: echo "Deployment finished"
+
+  
